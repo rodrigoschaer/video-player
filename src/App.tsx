@@ -1,10 +1,10 @@
-import { gql } from "@apollo/client";
-import { useEffect } from "react";
-import { client } from "./lib/apollo";
+import { gql, useQuery } from "@apollo/client";
+import { EventPlayer } from "./pages/EventPlayer";
 
 const GET_LESSONS_QUERY = gql`
   query Lessons {
     lessons {
+      id
       title
       slug
     }
@@ -12,11 +12,16 @@ const GET_LESSONS_QUERY = gql`
 `;
 
 export const App = () => {
-  useEffect(() => {
-    client
-      .query({ query: GET_LESSONS_QUERY })
-      .then((response) => console.log(response.data));
-  });
+  const { data } = useQuery(GET_LESSONS_QUERY);
 
-  return <h1 className="text-2xl font-bold"> Rodrigo OS </h1>;
+  return (
+    <>
+      <h1 className="text-2xl font-bold">
+        {data?.lessons.map((lesson: any) => {
+          return <li key={lesson.id}>{lesson.title}</li>;
+        })}
+      </h1>
+      <EventPlayer />
+    </>
+  );
 };
