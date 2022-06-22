@@ -4,9 +4,11 @@ export const EventPlayer = () => {
   return (
     <div>
       <Header />
-      <Sidebar />
-      <VideoPlayer />
-      <Lesson />
+      <main>
+        <Sidebar />
+        <VideoPlayer />
+        <Lesson />
+      </main>
     </div>
   );
 };
