@@ -16,12 +16,13 @@ export const App = () => {
 
   return (
     <>
+      <EventPlayer />
+
       <h1 className="text-2xl font-bold">
         {data?.lessons.map((lesson: any) => {
           return <li key={lesson.id}>{lesson.title}</li>;
         })}
       </h1>
-      <EventPlayer />
     </>
   );
 };
