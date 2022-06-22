@@ -1,3 +1,3 @@
 export const VideoPlayer = () => {
-  return <div>VideoPlayer</div>;
+  return <div className="flex-1">VideoPlayer</div>;
 };
