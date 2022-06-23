@@ -16,7 +16,7 @@ export const Lesson = () => {
           </span>
         </header>
         <span className="text-bold text-gray-200 mt-5 block">
-          Abertura do evento Ignite Lab
+          Abertura do evento Ignite Lab!
         </span>
       </div>
     </a>
