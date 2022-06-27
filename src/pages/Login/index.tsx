@@ -20,7 +20,6 @@ export const Login = () => {
   const handleSubmitForm = (event: FormEvent) => {
     event.preventDefault();
     createSubscriber({ variables: { name, email } });
-    console.log(data);
   };
 
   return (
