@@ -23,7 +23,7 @@ export const Login = () => {
   const handleSubmitForm = async (event: FormEvent) => {
     event.preventDefault();
     await createSubscriber({ variables: { name, email } });
-    navigate("/event/");
+    navigate("/event/lesson/create-react-app");
   };
 
   return (

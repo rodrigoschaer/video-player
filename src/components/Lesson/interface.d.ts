@@ -1,6 +1,6 @@
 interface LessonProps {
   title: string;
-  slug: string;
+  lessonSlug: string;
   availableAt: Date;
   type: "class" | "live";
 }
