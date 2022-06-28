@@ -12,14 +12,18 @@ const CREATE_SUBSCRIBER_MUTATION = gql`
 `;
 
 export const Login = () => {
-  const [createSubscriber, { data }] = useMutation(CREATE_SUBSCRIBER_MUTATION);
+  const navigate = useNavigate();
+  const [createSubscriber, { loading }] = useMutation(
+    CREATE_SUBSCRIBER_MUTATION
+  );
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmitForm = (event: FormEvent) => {
+  const handleSubmitForm = async (event: FormEvent) => {
     event.preventDefault();
-    createSubscriber({ variables: { name, email } });
+    await createSubscriber({ variables: { name, email } });
+    navigate("/event/");
   };
 
   return (
@@ -66,7 +70,8 @@ export const Login = () => {
 
             <button
               type="submit"
-              className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors"
+              disabled={loading}
+              className="mt-4 bg-green-500 uppercase py-4 rounded font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50"
             >
               Garantir minha vaga
             </button>
